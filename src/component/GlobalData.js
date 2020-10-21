@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import NumberFormat from 'react-number-format';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +38,9 @@ useEffect(() => {
 
 }, [])
 
+if(DataLoading){
+return("")
+}
 
   return (
     <div className={classes.root}>
@@ -47,8 +51,9 @@ useEffect(() => {
                 Global Data
                 </Typography>
                 <Typography variant="h4" style={{color:'black', fontWeight:'bold' }} gutterBottom>
-                <NumberFormat value={GlobalData && GlobalData.results && GlobalData.results[0].total_cases} displayType={'text'} thousandSeparator={true} />
-
+                {/* <NumberFormat value={GlobalData && GlobalData.results && GlobalData.results[0].total_cases} displayType={'text'} thousandSeparator={true} /> */}
+                <CountUp start={0} end={GlobalData && GlobalData.results && GlobalData.results[0].total_cases} duration={2.5} separator=","/>
+                      
                 </Typography>
           
           </Paper>
@@ -60,7 +65,9 @@ useEffect(() => {
                 </Typography>
                 <Typography variant="h4" style={{color:'yellow', fontWeight:'bold'}} gutterBottom>
                 
-                <NumberFormat value={GlobalData && GlobalData.results && GlobalData.results[0].total_active_cases} displayType={'text'} thousandSeparator={true} />
+                {/* <NumberFormat value={GlobalData && GlobalData.results && GlobalData.results[0].total_active_cases} displayType={'text'} thousandSeparator={true} /> */}
+                <CountUp start={0} end={GlobalData && GlobalData.results && GlobalData.results[0].total_active_cases} duration={2.5} separator=","/>
+                      
                 </Typography>
          
           </Paper>
@@ -71,8 +78,9 @@ useEffect(() => {
                 Recover
                 </Typography>
                 <Typography variant="h4" style={{color:'green', fontWeight:'bold'}} gutterBottom>
-                <NumberFormat value= {GlobalData && GlobalData.results && GlobalData.results[0].total_recovered} displayType={'text'} thousandSeparator={true} />
-               
+                {/* <NumberFormat value= {GlobalData && GlobalData.results && GlobalData.results[0].total_recovered} displayType={'text'} thousandSeparator={true} /> */}
+                <CountUp start={0} end={GlobalData && GlobalData.results && GlobalData.results[0].total_recovered} duration={2.5} separator=","/>
+                         
                 </Typography>
 
           </Paper>
@@ -84,7 +92,9 @@ useEffect(() => {
                 </Typography>
                 <Typography variant="h4" style={{color:'red', fontWeight:'bold'}} gutterBottom>
                 
-                <NumberFormat value= {GlobalData && GlobalData.results && GlobalData.results[0].total_deaths} displayType={'text'} thousandSeparator={true} />
+                {/* <NumberFormat value= {GlobalData && GlobalData.results && GlobalData.results[0].total_deaths} displayType={'text'} thousandSeparator={true} /> */}
+                <CountUp start={0} end={GlobalData && GlobalData.results && GlobalData.results[0].total_deaths} duration={2.5} separator=","/>
+                      
                 </Typography>
           </Paper>
     </div>
